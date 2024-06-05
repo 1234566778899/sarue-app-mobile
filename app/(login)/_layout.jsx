@@ -17,14 +17,15 @@ export default function LoginLayout() {
       })
       .catch(error => {
         console.log(error)
+
         alert('Credenciales inválidas');
       })
   }
-  useEffect(() => {
+  // useEffect(() => {
 
-    navigation.navigate('home')
+  //   navigation.navigate('confirm');
+  // }, [])
 
-  }, [])
   return (
     <View style={{ flex: 1, backgroundColor: 'white', paddingHorizontal: 20 }}>
       <Text style={{ fontSize: 40, fontWeight: 'bold', textAlign: 'center', marginTop: 40 }}>Iniciar sesión</Text>

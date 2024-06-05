@@ -1,49 +1,12 @@
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native'
 import React from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import axios from 'axios';
-import { CONFIG } from '../../config';
-import * as Location from 'expo-location';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from 'expo-router';
 
 export default function index() {
     const navigation = useNavigation();
     const sendAlert = async (incidence) => {
-        const { status } = await Location.requestForegroundPermissionsAsync();
-        if (status !== 'granted') return;
-        let location = await Location.getCurrentPositionAsync({});
-        const { latitude, longitude } = location.coords;
-        const token = await AsyncStorage.getItem('token');
-        if (!token) {
-            navigation.navigate('login');
-        }
-        Alert.alert(
-            'Confirmar',
-            '¿Estas seguro de enviar la alerta',
-            [
-                {
-                    text: 'Cancelar',
-                    onPress: () => { },
-                    style: 'cancel'
-                },
-                {
-                    text: 'Aceptar',
-                    onPress: () => {
-                        axios.post(`${CONFIG.uri}/alerts/send`, {
-                            address: '', user: token, incidence, longitude, latitude
-                        })
-                            .then(x => {
-                                alert('Alerta enviado correctamente')
-                            })
-                            .catch(error => {
-                                console.log(error);
-                                alert('Ha ocurrido un error');
-                            })
-                    },
-                }
-            ]
-        )
+        navigation.navigate('confirm', { incidence })
     }
     return (
         <View style={styles.container}>
