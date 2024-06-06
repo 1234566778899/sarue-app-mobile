@@ -16,6 +16,7 @@ export default function _layout() {
         'policia': ['Delito de robo', 'Incidente de armas', 'Disturbios y desordenes públicos', 'Control de tráfico/Seguridad en eventos'],
         'bomberos': ['Indencios', 'Rescata y salvamento', 'Incidentes por electricidad']
     }
+
     const sendIncidence = async (incidence) => {
         const { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== 'granted') return;
