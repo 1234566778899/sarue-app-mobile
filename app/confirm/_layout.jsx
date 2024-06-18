@@ -14,7 +14,7 @@ export default function _layout() {
     const types = {
         'ambulancia': ['Emergencias médicas', 'Translado urgente a unidades especializadas', 'Atención en situaciones de emergencia en eventos públicos'],
         'policia': ['Delito de robo', 'Incidente de armas', 'Disturbios y desordenes públicos', 'Control de tráfico/Seguridad en eventos'],
-        'bomberos': ['Indencios', 'Rescata y salvamento', 'Incidentes por electricidad']
+        'bomberos': ['Incendios', 'Rescate y salvamento', 'Incidentes por electricidad']
     }
 
     const sendIncidence = async (incidence) => {
