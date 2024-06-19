@@ -16,7 +16,7 @@ export default function suggestions() {
         if (typeSelected == '' || description == '') return;
         axios.post(`${CONFIG.uri}/suggestions/register`, { category: typeSelected, description, user: token })
             .then(x => {
-                navigation.navigate('home');
+                navigation.navigate('index');
                 alert('La sugerencia se envio correctamente')
 
             }).catch(error => {

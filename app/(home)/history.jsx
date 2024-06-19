@@ -22,7 +22,7 @@ export default function history() {
             })
     }
     useEffect(() => {
-        getHistory();
+        getHistory()
     }, [])
     return (
         <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>

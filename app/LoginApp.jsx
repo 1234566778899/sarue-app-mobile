@@ -13,14 +13,13 @@ export default function LoginApp() {
         axios.post(`${CONFIG.uri}/users/login`, { cellphone, password })
             .then(res => {
                 AsyncStorage.setItem('token', res.data.token)
-                navigation.navigate('home');
+                navigation.navigate('(home)');
             })
             .catch(error => {
                 console.log(error)
                 alert('Credenciales inválidas');
             })
     }
-
     return (
         <View style={{ flex: 1, backgroundColor: 'white', paddingHorizontal: 20 }}>
             <Text style={{ fontSize: 40, fontWeight: 'bold', textAlign: 'center', marginTop: 40 }}>Iniciar sesión</Text>

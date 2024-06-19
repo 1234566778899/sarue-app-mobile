@@ -33,7 +33,7 @@ export default function profile() {
         axios.post(`${CONFIG.uri}/users/update/${userId}`, { name, lname, cellphone, dni })
             .then(res => {
                 alert('Usuario actualizado');
-                navigation.navigate('home');
+                navigation.navigate('index');
             })
             .catch(error => {
                 console.log(error);
