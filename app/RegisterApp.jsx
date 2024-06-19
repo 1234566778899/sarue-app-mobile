@@ -2,8 +2,9 @@ import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-nativ
 import React, { useState } from 'react'
 import { useNavigation } from 'expo-router'
 import axios from 'axios'
-import { CONFIG } from '../../config';
-export default function RegisterLayout() {
+import { CONFIG } from '../config';
+
+export default function RegisterApp() {
     const navigation = useNavigation();
     const [name, setname] = useState('')
     const [lname, setlname] = useState('')

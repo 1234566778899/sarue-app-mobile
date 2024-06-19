@@ -6,7 +6,7 @@ import { useNavigation } from 'expo-router';
 export default function index() {
     const navigation = useNavigation();
     const sendAlert = async (incidence) => {
-        navigation.navigate('confirm', { incidence })
+        navigation.navigate('ConfirmApp', { incidence })
     }
     return (
         <View style={styles.container}>

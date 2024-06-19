@@ -11,7 +11,7 @@ export default function suggestions() {
     const sendSugg = async () => {
         const token = await AsyncStorage.getItem('token');
         if (!token) {
-            navigation.navigate('login');
+            navigation.navigate('LoginApp');
         }
         if (typeSelected == '' || description == '') return;
         axios.post(`${CONFIG.uri}/suggestions/register`, { category: typeSelected, description, user: token })
@@ -24,7 +24,7 @@ export default function suggestions() {
                 alert('Ups, un error');
             })
     }
-    const [suggs, setSuggs] = useState(['Mejoras en la interfaz de usuario (UI)', 'Nuevas funcionalidades', 'Corrección de errores', 'Optimización de rendimiento'])
+    const [suggs, setSuggs] = useState(['Usabilidad', 'Accesibilidad', 'Rendimiento', 'Funcionalidad'])
     return (
         <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={{ flex: 1 }}>

@@ -1,12 +1,12 @@
 import { View, Text, TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
 import axios from 'axios';
-import { CONFIG } from '../../config';
 import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from 'expo-router';
 import { useRoute } from '@react-navigation/native';
-export default function _layout() {
+import { CONFIG } from '../config';
+export default function ConfirmApp() {
     const route = useRoute();
     const navigation = useNavigation();
     const { incidence } = route.params;
@@ -25,7 +25,7 @@ export default function _layout() {
 
         const token = await AsyncStorage.getItem('token');
         if (!token) {
-            navigation.navigate('login');
+            navigation.navigate('LoginApp');
         }
         Alert.alert(
             'Confirmar',
@@ -44,6 +44,7 @@ export default function _layout() {
                         })
                             .then(x => {
                                 alert('Alerta enviado correctamente')
+                                navigation.navigate('(home)')
                             })
                             .catch(error => {
                                 console.log(error);
